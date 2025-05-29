@@ -1880,3 +1880,59 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+
+/* Add to your CSS */
+.project-item {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.project-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.project-img {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.project-img img {
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover .project-img img {
+    transform: scale(1.1);
+}
+
+/* Floating action button for projects */
+.project-actions {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-item:hover .project-actions {
+    opacity: 1;
+}
+
+.action-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
+}
