@@ -187,3 +187,37 @@ function eraseTitle() {
 
 // Start the animation
 typeTitle();
+
+// Animated skill progress bars
+function animateSkills() {
+    const skillBars = document.querySelectorAll('.skill-progress-fill');
+    
+    skillBars.forEach(bar => {
+        const targetWidth = bar.style.width;
+        const numericWidth = parseInt(targetWidth);
+        let currentWidth = 0;
+        
+        bar.style.width = '0%';
+        
+        const interval = setInterval(() => {
+            if (currentWidth >= numericWidth) {
+                clearInterval(interval);
+            } else {
+                currentWidth += 2;
+                bar.style.width = currentWidth + '%';
+            }
+        }, 50);
+    });
+}
+
+// Trigger animation when skills section is visible
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateSkills();
+        }
+    });
+});
+
+observer.observe(document.querySelector('.skill'));
+
