@@ -157,3 +157,33 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// Add to your script.js
+const titles = ["CFD Researcher", "OpenFOAM Developer", "ML Enthusiast", "Technology Innovator"];
+let titleIndex = 0;
+let charIndex = 0;
+const titleElement = document.querySelector('.title');
+
+function typeTitle() {
+    if (charIndex < titles[titleIndex].length) {
+        titleElement.textContent += titles[titleIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeTitle, 100);
+    } else {
+        setTimeout(eraseTitle, 2000);
+    }
+}
+
+function eraseTitle() {
+    if (charIndex > 0) {
+        titleElement.textContent = titles[titleIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseTitle, 50);
+    } else {
+        titleIndex = (titleIndex + 1) % titles.length;
+        setTimeout(typeTitle, 500);
+    }
+}
+
+// Start the animation
+typeTitle();
