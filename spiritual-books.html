@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spiritual Books Collection - Chitransh Atre</title>
+  <link rel="shortcut icon" href="./assets/images/Ashu3.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/spiritual-books.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Animated background container -->
+  <div class="animated-background">
+    <canvas id="plasmaCanvas"></canvas>
+  </div>
+
+  <main class="spiritual-books-main">
+    <div class="container">
+      <header class="page-header">
+        <button class="back-btn" onclick="window.close()">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+          Back to Portfolio
+        </button>
+        <div class="header-content">
+          <h1 class="page-title">Spiritual Books Collection</h1>
+          <p class="page-subtitle">Explore wisdom through sacred texts and spiritual literature</p>
+        </div>
+      </header>
+
+      <div class="books-container">
+        <div class="books-table-wrapper">
+          <table class="books-table">
+            <thead>
+              <tr>
+                <th>S.No.</th>
+                <th>Books</th>
+                <th>See and Download</th>
+              </tr>
+            </thead>
+            <tbody id="booksTableBody">
+              <tr class="book-row">
+                <td>1</td>
+                <td>
+                  <div class="book-info">
+                    <div class="book-icon">
+                      <ion-icon name="book-outline"></ion-icon>
+                    </div>
+                    <div class="book-details">
+                      <h3>The Power of Now</h3>
+                      <p>A Guide to Spiritual Enlightenment</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="view-btn" type="button" data-pdf-path="./assets/pdfs/TU_book.pdf">
+                      <ion-icon name="eye-outline"></ion-icon>
+                      View
+                    </button>
+                    <button class="download-btn" type="button" data-pdf-path="./assets/pdfs/TU_book.pdf" data-filename="The_Power_of_Now.pdf">
+                      <ion-icon name="download-outline"></ion-icon>
+                      Download
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="add-more-section">
+          <div class="add-more-card">
+            <div class="add-more-icon">
+              <ion-icon name="add-circle-outline"></ion-icon>
+            </div>
+            <h3>Add More Books</h3>
+            <p>Upload and organize your spiritual book collection</p>
+            <button class="add-book-btn" onclick="showAddBookModal()">
+              <ion-icon name="add-outline"></ion-icon>
+              Add New Book
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Book Modal -->
+    <div class="modal-overlay" id="addBookModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Add New Spiritual Book</h2>
+          <button class="close-modal" onclick="closeAddBookModal()">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+        <form class="add-book-form" id="addBookForm">
+          <div class="form-group">
+            <label for="bookTitle">Book Title</label>
+            <input type="text" id="bookTitle" name="bookTitle" required placeholder="Enter book title">
+          </div>
+          <div class="form-group">
+            <label for="bookDescription">Description</label>
+            <input type="text" id="bookDescription" name="bookDescription" placeholder="Brief description">
+          </div>
+          <div class="form-group">
+            <label for="bookFile">PDF File</label>
+            <input type="file" id="bookFile" name="bookFile" accept=".pdf" required>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="cancel-btn" onclick="closeAddBookModal()">Cancel</button>
+            <button type="submit" class="submit-btn">Add Book</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/spiritual-books.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+
