@@ -1,0 +1,282 @@
+/* Certificates Page Styles adapted from Spiritual Books */
+.spiritual-books-main {
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: var(--shadow-5);
+}
+.page-header {
+  margin-bottom: 40px;
+  position: relative;
+}
+.back-btn {
+  background: var(--border-gradient-onyx);
+  color: var(--orange-yellow-crayola);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: var(--fs-6);
+  margin-bottom: 20px;
+  position: relative;
+}
+.back-btn::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+}
+.back-btn:hover {
+  background: var(--bg-gradient-yellow-1);
+  transform: translateY(-2px);
+}
+.back-btn:hover::before {
+  background: var(--bg-gradient-yellow-2);
+}
+.header-content {
+  text-align: center;
+}
+.page-title {
+  color: var(--white-2);
+  font-size: 2.5rem;
+  font-weight: var(--fw-600);
+  margin-bottom: 10px;
+  background: var(--text-gradient-yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.page-subtitle {
+  color: var(--light-gray);
+  font-size: var(--fs-4);
+  margin-bottom: 20px;
+}
+.books-container {
+  display: grid;
+  gap: 30px;
+}
+
+/* New grid for certificates 2 per row */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 20px;
+}
+.certificate-card {
+  background: var(--border-gradient-onyx);
+  border-radius: 16px;
+  padding: 15px 12px; /* reduced padding */
+  box-shadow: var(--shadow-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; /* reduced gap */
+  color: var(--white-2);
+  text-align: center;
+}
+.certificate-icon {
+  background: var(--border-gradient-onyx);
+  width: 40px; /* smaller icon size */
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--orange-yellow-crayola);
+  font-size: 22px; /* smaller font-size */
+  position: relative;
+}
+.certificate-icon::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--eerie-black-1);
+  border-radius: inherit;
+  z-index: -1;
+}
+.certificate-card h3 {
+  font-size: 1.25rem; /* smaller font size */
+  font-weight: var(--fw-600);
+  margin: 0 0 4px 0; /* reduced bottom margin */
+}
+.certificate-card p {
+  color: var(--light-gray-70);
+  font-size: 0.85rem; /* smaller font */
+  margin: 0 0 8px 0; /* reduced bottom margin */
+}
+.certificate-card .view-btn {
+  align-self: center;
+  background: var(--border-gradient-onyx);
+  border: none;
+  padding: 6px 14px; /* smaller padding */
+  border-radius: 12px;
+  font-size: 0.85rem; /* smaller font */
+  color: var(--orange-yellow-crayola);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.certificate-card .view-btn::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+}
+.certificate-card .view-btn:hover {
+  background: var(--bg-gradient-yellow-1);
+  transform: translateY(-2px);
+}
+.certificate-card .view-btn:hover::before {
+  background: var(--bg-gradient-yellow-2);
+}
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-content {
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 900px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: 80vh;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+.modal-overlay.active .modal-content {
+  transform: scale(1);
+}
+.modal-img-wrapper {
+  position: relative;
+  width: 100%;
+  max-height: 75vh;
+  overflow: auto;
+}
+#cert-image {
+  width: auto;
+  height: auto;
+  max-height: 70vh;
+  display: flex;
+  margin: 0 auto;
+}
+#image-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #dc3545;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 10;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: background 0.3s ease;
+}
+#image-close-btn:hover {
+  background: #a71d2a;
+}
+.modal-img-wrapper::after {
+  content: "© Chitransh";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 80px; /* bigger font size */
+  color: rgba(255, 255, 255, 0.03); /* lighter color */
+  font-weight: 600;
+  pointer-events: none;
+  user-select: none;
+  z-index: 5;
+  white-space: nowrap;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  width: 500%;
+  text-align: center;
+}
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+  .page-title {
+    font-size: 2rem;
+  }
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Notification Styles */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-3);
+  z-index: 10000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  max-width: 300px;
+}
+.notification.show {
+  transform: translateX(0);
+}
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white-2);
+}
+.notification-success {
+  background: var(--bg-gradient-yellow-1);
+}
+.notification-error {
+  background: var(--bittersweet-shimmer);
+}
+.notification-info {
+  background: var(--border-gradient-onyx);
+}
+
